@@ -1,18 +1,26 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Home</h1>
+    <pre>{{forecast}}</pre>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import API from '@/lib/API';
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld,
+  name: 'home',
+  data() {
+    return {
+      forecast: {},
+    };
+  },
+  mounted() {
+    API.getForecast()
+      .then((result) => {
+        console.log(result);
+        this.forecast = result;
+      });
   },
 };
 </script>

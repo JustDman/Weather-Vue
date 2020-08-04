@@ -12,7 +12,7 @@ https://www.youtube.com/watch?v=cWSu4jfim0Q
 - [x] Signup for OpenWeather API
   - [x] Get API Key
 - [x] Create API module
-  - [ x Create function to call API with hard coded lat long
+  - [x] Create function to call API with hard coded lat long
 - [x] Call API in mounted method of component
 - [ ] Add current weather to the page
 - [ ] Add emojis

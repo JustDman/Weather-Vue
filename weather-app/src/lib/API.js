@@ -2,15 +2,28 @@ import config from '@/assets/config';
 
 /* eslint-disable-next-line */
 const APP_ID = config.APP_ID;
-const lat = '47.529250';
-const lon = '12.249650';
-const API_URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${APP_ID}&units=metric`;
+const proxy = 'https://cors-anywhere.herokuapp.com/';
+const WEATHER_API_URL = `${proxy}https://api.openweathermap.org/data/2.5/onecall?`;
+const GEO_API_URL = `${proxy}https://darksky.net/geo?q=`;
+const ADDRESS_API_URL = `${proxy}https://darksky.net/rgeo?hires=1`;
 
-function getForecast() {
-  return fetch(API_URL)
+function getCoords(location) {
+  return fetch(`${GEO_API_URL}${location}`)
+  .then((response) => response.json());
+}
+
+function getForecast(lat, lon) {
+  return fetch(`${WEATHER_API_URL}lat=${lat}&lon=${lon}&appid=${APP_ID}&units=metric`)
+    .then((response) => response.json());
+}
+
+function getAddress(lat, lon) {
+  return fetch(`${ADDRESS_API_URL}&lat=${lat}&lon=${lon}`)
     .then((response) => response.json());
 }
 
 export default {
   getForecast,
+  getCoords,
+  getAddress,
 };

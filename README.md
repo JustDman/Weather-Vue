@@ -14,11 +14,11 @@ https://www.youtube.com/watch?v=cWSu4jfim0Q
 - [x] Create API module
   - [x] Create function to call API with hard coded lat long
 - [x] Call API in mounted method of component
-- [ ] Add current weather to the page
-- [ ] Add emojis
-- [ ] Allow user to enter location
-  - [ ] Geocode location to lat long
-  - [ ] Update weather on page
-- [ ] Show location name
-- [ ] Add Weather map to page
+- [x] Add current weather to the page
+- [x] Add emojis
+- [x] Allow user to enter location
+  - [x] Geocode location to lat long
+  - [x] Update weather on page
+- [x] Show location name
 - [ ] Show upcoming forecast
+- [ ] Add Weather map to page

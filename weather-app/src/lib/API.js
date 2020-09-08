@@ -1,3 +1,4 @@
+/* eslint-disable-next-line */
 import config from '@/assets/config';
 
 /* eslint-disable-next-line */
@@ -9,7 +10,7 @@ const ADDRESS_API_URL = `${proxy}https://darksky.net/rgeo?hires=1`;
 
 function getCoords(location) {
   return fetch(`${GEO_API_URL}${location}`)
-  .then((response) => response.json());
+    .then((response) => response.json());
 }
 
 function getForecast(lat, lon) {

@@ -1,40 +1,39 @@
 <template>
-  <div class="home">
-    <div class="current">
-      <div class="row">
-        <div class="col-8 offset-2">
-          <div class="input-group mb-3">
-            <input v-on:keyup="enterButtonPress" v-model="location" type="text" class="form-control"
-              placeholder="Enter Location">
-            <div class="input-group-append">
-              <button @click="updateLocation" class="btn btn-outline-secondary" type="button">
-                Search</button>
-            </div>
+  <div class="hourly">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <div class="input-group mb-3">
+          <input v-on:keyup="enterButtonPress" v-model="location" type="text" class="form-control"
+            placeholder="Enter Location">
+          <div class="input-group-append">
+            <button @click="updateLocation" class="btn btn-outline-secondary" type="button">
+              Search</button>
           </div>
         </div>
-        <div class="col-8 offset-2 text-center" v-if="forecast">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-xs-6 text-center" v-for="(hourly, count) in forecast.hourly"
+      v-bind:key="hourly.weather.icon">
           <div class="card text-white bg-secondary mb-3">
-            <div class="card-header">Current Weather in {{address.name}}</div>
+            <div class="card-header">Weather in {{address.name}} in {{count}} hours.</div>
             <div class="card-body">
-              <h4 v-for="current in forecast.current.weather" v-bind:key="current.main"
-                class="card-title">
-                {{current.main}}
+              <h4 class="card-title" v-for="weather in hourly.weather" v-bind:key="weather.main">
+                {{weather.main}}
               </h4>
-              <p v-for="current in forecast.current.weather" v-bind:key="current.description"
-                class="card-text icon-temp">
-                {{current.description}}<br />
-                {{forecast.current.temp}} ℃
+              <p class="card-text icon-temp" v-for="weather in hourly.weather"
+                v-bind:key="weather.description">
+                {{weather.description}}<br />
+                {{hourly.temp}} ℃
               </p>
-              <p class="card-text" v-for="current in forecast.current.weather"
-                v-bind:key="current.icon">
-                <img :src=icons[current.icon]>
+              <p class="card-text" v-for="weather in hourly.weather" v-bind:key="weather.icon">
+                <img :src=icons[weather.icon]>
               </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>

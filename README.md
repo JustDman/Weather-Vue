@@ -1,7 +1,9 @@
 # Weather-Vue
 
 Following a "Newby Tuesday" from Coding Garden to learn Web Development a bit more
-https://www.youtube.com/watch?v=cWSu4jfim0Q
+https://www.youtube.com/watch?v=cWSu4jfim0Qmd 
+
+Finished the project doing my own stuff.
 
 # Tasks
 
@@ -20,5 +22,5 @@ https://www.youtube.com/watch?v=cWSu4jfim0Q
   - [x] Geocode location to lat long
   - [x] Update weather on page
 - [x] Show location name
-- [ ] Show upcoming forecast
-- [ ] Add Weather map to page
+- [x] Add LocalStorage
+- [x] Show upcoming forecast
